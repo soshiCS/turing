@@ -7,19 +7,10 @@ import "./App.css";
 const App = () => {
   const [languages, setLanguages] = useState({});
   const [selectedLanguage, setSelectedLanguage] = useState(null);
-  const [tape, setTape] = useState([
-    "_",
-    "_",
-    "_",
-    "1",
-    "0",
-    "1",
-    "_",
-    "_",
-    "_",
-  ]);
-  const [headPosition, setHeadPosition] = useState(3);
+  const [tape, setTape] = useState([]);
+  const [headPosition, setHeadPosition] = useState(0);
   const [currentState, setCurrentState] = useState("q0");
+  const [userInput, setUserInput] = useState("");
 
   const saveLanguage = (name, rules) => {
     const formattedRules = {};
@@ -45,8 +36,8 @@ const App = () => {
     }
     setSelectedLanguage(languages[name]);
     setCurrentState("q0");
-    setHeadPosition(3);
-    setTape(["_", "_", "_", "1", "0", "1", "_", "_", "_"]);
+    setHeadPosition(0);
+    setTape(userInput.split(""));
   };
 
   const step = () => {
@@ -55,7 +46,7 @@ const App = () => {
       return;
     }
 
-    const symbol = tape[headPosition];
+    const symbol = tape[headPosition] || "_"; // Assume blank for undefined cells
     const transition = selectedLanguage[currentState]?.[symbol];
 
     if (!transition) {
@@ -83,6 +74,16 @@ const App = () => {
             {name}
           </button>
         ))}
+      </div>
+      <div className="tape-input">
+        <h3>Set Initial Tape Input</h3>
+        <input
+          type="text"
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+          placeholder="Enter tape content (e.g., 10101)"
+        />
+        <button onClick={() => setTape(userInput.split(""))}>Set Tape</button>
       </div>
       <Tape tape={tape} headPosition={headPosition} />
       <div className="state-display">Current State: {currentState}</div>
