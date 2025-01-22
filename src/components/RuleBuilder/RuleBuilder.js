@@ -66,7 +66,7 @@ const RuleBuilder = ({ onSaveLanguage }) => {
           type="text"
           value={languageName}
           onChange={(e) => setLanguageName(e.target.value)}
-          placeholder="Language Name (e.g., Addition)"
+          placeholder="Language Name"
         />
       </div>
       <div className="rule-form">
@@ -75,21 +75,21 @@ const RuleBuilder = ({ onSaveLanguage }) => {
           name="currentState"
           value={newRule.currentState}
           onChange={handleInputChange}
-          placeholder="Current State (e.g., q0)"
+          placeholder="Current State"
         />
         <input
           type="text"
           name="currentSymbol"
           value={newRule.currentSymbol}
           onChange={handleInputChange}
-          placeholder="Current Symbol (e.g., 1)"
+          placeholder="Current Symbol"
         />
         <input
           type="text"
           name="writeSymbol"
           value={newRule.writeSymbol}
           onChange={handleInputChange}
-          placeholder="Write Symbol (e.g., 0)"
+          placeholder="Write Symbol"
         />
         <select
           name="direction"
@@ -104,7 +104,7 @@ const RuleBuilder = ({ onSaveLanguage }) => {
           name="nextState"
           value={newRule.nextState}
           onChange={handleInputChange}
-          placeholder="Next State (e.g., q1)"
+          placeholder="Next State"
         />
         <button onClick={addRule}>Add Rule</button>
       </div>

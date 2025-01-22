@@ -81,7 +81,7 @@ const App = () => {
           type="text"
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
-          placeholder="Enter tape content (e.g., 10101)"
+          placeholder="Enter tape content"
         />
         <button onClick={() => setTape(userInput.split(""))}>Set Tape</button>
       </div>
