@@ -1,0 +1,21 @@
+.tape {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .tape-cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
+  
+  .tape-cell.active {
+    background-color: yellow;
+    border: 2px solid red;
+  }
+  
