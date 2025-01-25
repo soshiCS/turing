@@ -1,0 +1,4 @@
+.react-flow__edge-path {
+  pointer-events: visibleStroke; /* Enable hover and click detection */
+  z-index: 1; /* Place edges below nodes */
+}
